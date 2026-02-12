@@ -42,9 +42,9 @@ def require_api_key(f):
 def home():
     return render_template('index.html')
 
-@app.route('/dashboard')
+@app.route('/static/dashboard')
 def dashboard():
-    return render_template('/templates/dashboard.html')
+    return render_template('dashboard.html')
 
 # --- API Endpoints (The Logic) ---
 
