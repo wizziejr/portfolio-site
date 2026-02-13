@@ -478,6 +478,9 @@ section {
     nav { padding: 1.3rem 5%; }
     .hero { flex-direction: column-reverse; gap: 2rem; }
     .hero-img .img-box { width: 50vw; height: 50vw; }
+    body{
+        overflow-x: hidden;
+    }
 }
 
 @media (max-width: 768px) {
@@ -485,6 +488,9 @@ section {
     
     .hamburger { 
         display: block; 
+    }
+    body{
+        overflow-x: hidden;
     }
 
     .nav-links {
