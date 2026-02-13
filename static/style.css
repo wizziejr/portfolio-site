@@ -481,6 +481,12 @@ section {
     body{
         overflow-x: hidden;
     }
+    .contact-wrapper{
+        display: block;
+    }
+    .skills-wrapper{
+        display: block;
+    }
 }
 
 @media (max-width: 768px) {
