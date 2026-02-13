@@ -445,6 +445,7 @@ section {
 
 .social-links {
     margin-bottom: 1.5rem;
+    display: flex;
 }
 
 .social-links a {
@@ -456,7 +457,7 @@ section {
     background: transparent;
     border: 1px solid var(--main-color);
     border-radius: 50%;
-    color: var(--main-color);
+    color: var(--text-color);
     margin: 0 0.5rem;
     transition: 0.3s;
 }
@@ -465,6 +466,58 @@ section {
     background: var(--main-color);
     color: var(--bg-color);
     transform: translateY(-5px);
+}
+/* --- BRANDED SOCIAL ICONS --- */
+
+/* WhatsApp (Green) */
+.social-links .wap a {
+    border-color: #25D366;
+    background-color: #25D366;
+    color: #fff;
+}
+.social-links .wap a:hover {
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 0 1rem #25D366;
+}
+
+/* Facebook (Blue) */
+.social-links .facebook a {
+    border-color: #1877F2;
+    background-color: #1877F2;
+    color: #fff;
+}
+.social-links .facebook a:hover {
+    background: #1877F2;
+    color: #fff;
+    box-shadow: 0 0 1rem #1877F2;
+}
+
+/* Instagram (Pink/Gradient) */
+.social-links .instagram a {
+    border-color: #fff;
+    background-color: #E1306C;
+    color: #fff;
+}
+.social-links .instagram a:hover {
+    /* Instagram Gradient Background */
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-color: transparent; 
+    color: #fff;
+    box-shadow: 0 0 1rem #E1306C;
+}
+
+/* GitHub (White/Black) */
+/* Since your background is dark, we make GitHub White */
+.social-links .github a {
+    border-color: #ffffff;
+    background-color: #ffffff;
+    color: #000;
+}
+.social-links .github a:hover {
+    background: #ffffff;
+    color: #000000; /* Black icon on white background */
+    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
 }
 
 .copyright {
