@@ -1,19 +1,37 @@
 // 1. Toggle Navbar on Mobile
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
-const navItems = document.querySelectorAll('.nav-links a'); // Select all menu links
+const navItems = document.querySelectorAll('.nav-links a'); 
 
-if(hamburger) {
+if (hamburger) {
     hamburger.addEventListener('click', () => {
+        // Toggle the menu visibility
         navLinks.classList.toggle('active');
+        
+        // Toggle the icon between Bars and Times (X)
+        const icon = hamburger.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
     });
 }
 
-// FIX: Close menu when a link is clicked
+// Close menu when a link is clicked
 navItems.forEach(item => {
     item.addEventListener('click', () => {
         if (navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
+            
+            // Reset the icon back to bars
+            const icon = hamburger.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         }
     });
 });
@@ -21,7 +39,7 @@ navItems.forEach(item => {
 // 2. Typing Effect for Hero Section
 const typeSpan = document.querySelector('.typewriter');
 if (typeSpan) {
-    const textArray = ["Web Developer", "Programmer", "Tech Enthusiast"];
+    const textArray = ["Web Developer", "Programmer", "Tech Enthusiast", "Problem Solver"];
     let textIndex = 0;
     let charIndex = 0;
 
@@ -58,6 +76,7 @@ if (skillSection) {
                 entry.target.classList.add('show-animate');
             }
         });
-    });
+    }, { threshold: 0.3 });
+
     observer.observe(skillSection);
 }

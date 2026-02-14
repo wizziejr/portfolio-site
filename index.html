@@ -15,12 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="/static/style.css">
-    <link rel="icon" type="image/png" href="/favicon.png">
-</head>
+    </head>
 <body>
 
     <nav>
-        <div class="logo" style="color: #38bdf8;">My Portfolio</div>
+        <div class="logo">My Portfolio</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -51,7 +50,7 @@
         </div>
         <div class="hero-img">
             <div class="img-box">
-                <img src="/static/pic 1.jpeg" alt="Wisdom Junior Malata">
+                <img src="static/pic 1.jpeg" alt="Wisdom Junior Malata" onerror="this.src='https://via.placeholder.com/500x500?text=Profile+Image'">
             </div>
         </div>
     </section>
@@ -131,7 +130,7 @@
 
             <div class="project-card">
                 <div class="project-img">
-                    <img src="image.png" alt="Ebenezer Guest House Website" onerror="this.src='https://via.placeholder.com/400x300?text=Project+Image'">
+                     <img src="image.png" alt="Ebenezer Guest House Website" onerror="this.src='https://via.placeholder.com/400x300?text=Project+Image'">
                 </div>
                 <div class="project-info">
                     <h3>Ebenezer Guest House</h3>
@@ -160,52 +159,61 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2 class="section-title">Get in <span>Touch</span></h2>
+        <h2 class="section-title">Contact <span>Us</span></h2>
+        <h3 style="text-align: center; margin-bottom: 3rem; font-weight: 400; color: #94a3b8;">Home / Contact</h3>
         
         <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="details">
-                        <h4>Location</h4>
+            <div class="contact-form-container">
+                <h3>Get In Touch</h3>
+                <form class="contact-form" action="https://formspree.io/f/xkovjwzb" method="POST">
+                    <div class="input-box">
+                        <input type="text" name="name" placeholder="Your Name..." required> 
+                    </div>
+                    <div class="input-box">
+                        <input type="email" name="email" placeholder="Email Address..." required> 
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="subject" placeholder="Subject..." required> 
+                    </div>
+                    <div class="input-box">
+                        <textarea name="message" placeholder="Type Here..." cols="30" rows="8" required></textarea>
+                    </div>
+                    <div class="btn-box">
+                        <button type="submit" class="btn btn-block">Send Now</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="contact-info-container">
+                <p class="contact-intro">In tempus nisl turpis, at ultricies dui eleifend a. Quisque et quam vel nunc consectetur pharetra euismod et elit. Morbi nibh tortor, ullamcorper id purus eu.</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>Phone Number</h4>
+                        <a href="tel:+265992393452">+265 992 393 452</a>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email Address</h4>
+                        <a href="mailto:wj00755@gmail.com">wj00755@gmail.com</a>
+                    </div>
+                    <div class="info-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <h4>Whatsapp</h4>
+                        <a href="https://wa.me/265992393452">0992-393-452</a>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Our Office</h4>
                         <p>Lilongwe, Area 24, Malawi</p>
                     </div>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div class="details">
-                        <a href="mailto:wj00755@gmail.com">
-                            <h4>Email</h4>
-                            <p>wj00755@gmail.com</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div class="details">
-                        <a href="tel:+265992393452">
-                            <h4>Phone</h4>
-                            <p>+265 992 393 452</p>
-                        </a>
-                    </div>
+
+                <div class="map-container">
+                    <img src="https://via.placeholder.com/600x300.png?text=Map+Location+Placeholder" alt="Location Map">
                 </div>
             </div>
-
-            <form class="contact-form" action="https://formspree.io/f/xkovjwzb" method="POST">
-                <div class="input-box">
-                    <input type="text" name="name" placeholder="Name" required> 
-                </div>
-                <div class="input-box">
-                    <input type="email" name="email" placeholder="Email" required> 
-                </div>
-                <div class="input-box">
-                    <textarea name="message" placeholder="Message" cols="30" rows="10" required></textarea>
-                </div>
-                <div class="btn-box">
-                    <button type="submit" class="btn">Send Message</button>
-                </div>
-            </form>
         </div>
     </section>
 
@@ -213,16 +221,16 @@
         <h2 class="text">CONNECT WITH ME</h2>
         <div class="social-links">
             <div class="wap">
-                <a href="https://wa.me/265992393452"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/265992393452" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
             <div class="facebook">
-                <a href="https://www.facebook.com/profile.php?id=100075024163079"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100075024163079" target="_blank"><i class="fab fa-facebook-f"></i></a>
             </div>
             <div class="instagram">
-                <a href="https://www.instagram.com/wizzy_jr7/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/wizzy_jr7/" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="github">
-                <a href="https://github.com/wizziejr"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/wizziejr" target="_blank"><i class="fab fa-github"></i></a>
             </div>
         </div>
         <p class="copyright">
@@ -230,7 +238,7 @@
         </p>
     </footer>
 
-    <script src="/static/script.js"></script>
+    <script src="script.js"></script>
     
     <script type="application/ld+json">
     {
