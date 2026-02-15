@@ -595,66 +595,83 @@ section {
 /* --- RESPONSIVE MEDIA QUERIES --- */
 
 /* Changed breakpoint from 768px to 991px to handle tablets better */
+   /* Update the @media (max-width: 991px) section */
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
 @media (max-width: 991px) {
-    section { padding: 5rem 5% 2rem; }
-    nav { padding: 1.3rem 5%; }
-    
-    .hamburger { display: block; }
-    
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: -100%; 
-        width: 100%;
-        padding: 2rem 5%;
-        background: var(--bg-color);
-        /* Add a bottom border or shadow to separate from content */
-        border-bottom: 2px solid var(--main-color);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        transition: 0.4s ease-in-out;
+    html {
+        font-size: 80%; /* Scales down text slightly for smaller screens */
+    }
+
+    section {
+        padding: 5rem 5% 2rem;
+    }
+
+    nav {
+        padding: 1.3rem 5%;
     }
     
+    /* Make Hamburger Visible */
+    .hamburger { 
+        display: block; 
+        z-index: 1001;
+    }
+    
+    /* Mobile Menu Styling */
+    .nav-links {
+        display: none; /* Hide nav on mobile by default */
+        flex-direction: column;
+        background: var(--white);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+    }
+    
+    /* Active State (Triggered by JS) */
     .nav-links.active { 
         left: 0;
     }
 
+    /* Hero adjustments */
     .hero { 
         flex-direction: column-reverse; 
         gap: 3rem; 
         text-align: center; 
+        padding-top: 10rem; /* Gives space for the fixed nav */
     }
     
-    .hero-btns { justify-content: center; }
-    
-    /* Resize hero image */
-    .hero-img .img-box { width: 50vw; height: 50vw; }
-    
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+    .hero-btns { 
+        justify-content: center; 
     }
     
-    .skills-wrapper {
-        grid-template-columns: 1fr;
+    .hero-img .img-box { 
+        width: 50vw; 
+        height: 50vw; 
     }
-}
-
-@media (max-width: 768px) {
-    .hero-content h1 { font-size: 2.8rem; }
     
-    .hero-img .img-box { width: 65vw; height: 65vw; }
-
-    .info-grid {
-        grid-template-columns: 1fr;
+    /* Adjust Grids for Mobile */
+    .contact-wrapper,
+    .skills-wrapper,
+    .info-grid { 
+        grid-template-columns: 1fr; 
         gap: 2rem;
     }
     
-    .info-card {
-        align-items: center; 
-        text-align: center;
+    .timeline {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 70%; 
+    }
+    .hero-img .img-box { 
+        width: 70vw; 
+        height: 70vw; 
     }
 }
