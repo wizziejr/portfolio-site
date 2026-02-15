@@ -55,7 +55,6 @@ nav {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 247, 255, 0.1);
 }
 
