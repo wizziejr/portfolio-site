@@ -40,6 +40,58 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    /* --- 3D CARD SLIDER LOGIC --- */
+    const slides = document.querySelectorAll('.slide-item');
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+
+    if (slides.length > 0 && nextBtn && prevBtn) {
+        let currentIndex = 0;
+
+        // Initialize positions
+        updateSlider();
+
+        function updateSlider() {
+            // Remove all classes first
+            slides.forEach(slide => {
+                slide.classList.remove('active', 'prev', 'next');
+                // Ensure hidden slides stay hidden in back
+                slide.style.opacity = '0'; 
+                slide.style.zIndex = '0';
+            });
+
+            // Handle Index Wrap-around
+            let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+            let nextIndex = (currentIndex + 1) % slides.length;
+
+            // Assign Classes
+            slides[currentIndex].classList.add('active');
+            slides[currentIndex].style.opacity = '1';
+            
+            slides[prevIndex].classList.add('prev');
+            slides[prevIndex].style.opacity = '0.6';
+            
+            slides[nextIndex].classList.add('next');
+            slides[nextIndex].style.opacity = '0.6';
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+        });
+        
+        // Optional: Auto-play
+        setInterval(() => {
+           // Uncomment next line to enable auto-scroll
+           // nextBtn.click();
+        }, 5000);
+    }
+
     /* --- TYPING EFFECT --- */
     const typeSpan = document.querySelector('.typewriter');
     if (typeSpan) {

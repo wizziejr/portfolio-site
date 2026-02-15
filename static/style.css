@@ -374,6 +374,117 @@ section {
     position: relative;
     border: 1px solid rgba(0, 247, 255, 0.1);
 }
+/* About Gallery Grid */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 500px; /* Adjust height based on your preference */
+    margin: 3rem auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px; /* Essential for the 3D effect */
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-item {
+    position: absolute;
+    width: 300px; /* Base width of the card */
+    height: 400px; /* Base height of the card */
+    background: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.5s ease, opacity 0.5s ease, z-index 0s;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    opacity: 0; /* Hidden by default */
+    z-index: 0;
+    border: 2px solid rgba(0, 247, 255, 0.3);
+}
+
+.slide-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay Text (Optional, matches stylistic look) */
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 20px;
+    transform: translateY(100px);
+    transition: 0.5s;
+}
+
+.slide-item.active .slide-content {
+    transform: translateY(0);
+}
+
+/* --- SLIDE STATES --- */
+
+/* Active (Center) */
+.slide-item.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    z-index: 10;
+    border-color: var(--main-color);
+    box-shadow: 0 0 20px rgba(0, 247, 255, 0.4);
+}
+
+/* Next (Right) */
+.slide-item.next {
+    opacity: 0.6;
+    transform: translateX(220px) scale(0.8) perspective(1000px) rotateY(-10deg);
+    z-index: 5;
+    filter: blur(1px);
+}
+
+/* Prev (Left) */
+.slide-item.prev {
+    opacity: 0.6;
+    transform: translateX(-220px) scale(0.8) perspective(1000px) rotateY(10deg);
+    z-index: 5;
+    filter: blur(1px);
+}
+
+/* Navigation Buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(4, 12, 18, 0.8);
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 20;
+    transition: 0.3s;
+}
+
+.slider-btn:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--main-color);
+}
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
 
 .circle-dot {
     position: absolute;
@@ -700,6 +811,17 @@ section {
     .timeline {
         padding-left: 0;
     }
+    .slider-container {
+        height: 450px;
+    }
+    .slide-item {
+        width: 240px;
+        height: 340px;
+    }
+    /* On mobile, bring the side cards closer */
+    .slide-item.next { transform: translateX(140px) scale(0.85); }
+    .slide-item.prev { transform: translateX(-140px) scale(0.85); }
+
 }
 
 @media (max-width: 450px) {
@@ -709,5 +831,14 @@ section {
     .hero-img .img-box { 
         width: 70vw; 
         height: 70vw; 
+    }
+    .slider-container {
+        height: 400px;
+        width: 100%;
+        overflow: visible; /* Allows swipe feeling */
+    }
+    .slide-item {
+        width: 200px;
+        height: 280px;
     }
 }
