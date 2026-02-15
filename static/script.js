@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- MOBILE MENU TOGGLE --- */
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-links a');
+    const navItems = document.querySelectorAll('.nav-links li a');
 
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
