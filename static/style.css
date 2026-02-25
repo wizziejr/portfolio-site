@@ -267,6 +267,9 @@ section {
 .skill-per.cpp { width: 60%; }
 .skill-per.ms { width: 90%; }
 .skill-per.trouble { width: 85%; }
+.skill-per.ethical { width: 90%; }
+.skill-per.flutter { width: 70%; }
+.skill-per.php { width: 50%; }
 
 .tooltip {
     position: absolute;
