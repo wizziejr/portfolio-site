@@ -71,6 +71,11 @@ nav {
     gap: 2.5rem;
 }
 
+.nav-links ul {
+    display: flex;
+    gap: 2.5rem;
+}
+
 .nav-links a {
     font-size: 1rem;
     color: var(--text-color);
