@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- TYPING EFFECT --- */
     const typeSpan = document.querySelector('.typewriter');
     if (typeSpan) {
-        const textArray = ["Web Developer", "Programmer", "Graphic Designer", "Ethical Hacker", "Tech Enthusiast"];
+        const textArray = ["Web Developer", "Programmer", "Graphic Designer", "Software Engineer", "Ethical Hacker", "Tech Enthusiast"];
         let textIndex = 0;
         let charIndex = 0;
 

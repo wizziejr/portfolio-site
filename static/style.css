@@ -769,7 +769,7 @@ section {
     /* Hero adjustments */
     .hero { 
         flex-direction: column-reverse; 
-        gap: 3rem; 
+        gap: 2.9rem; 
         text-align: center; 
         padding-top: 10rem;
     }
