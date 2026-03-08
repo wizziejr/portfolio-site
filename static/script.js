@@ -6,13 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
-            // 1. Toggle the menu
             navLinks.classList.toggle('active');
-
-            // 2. Toggle the icon (Bars <-> X)
             const icon = hamburger.querySelector('i');
             if (icon) {
-                // If menu is now open, show 'X', otherwise show 'Bars'
                 if (navLinks.classList.contains('active')) {
                     icon.classList.remove('fa-bars');
                     icon.classList.add('fa-times');
@@ -24,13 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close menu when a link is clicked (UX best practice)
+    // Close menu when a link is clicked
     navItems.forEach(item => {
         item.addEventListener('click', () => {
             if (navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
-                
-                // Reset icon to bars
                 const icon = hamburger.querySelector('i');
                 if (icon) {
                     icon.classList.remove('fa-times');
@@ -41,61 +35,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* --- 3D CARD SLIDER LOGIC --- */
-    const slides = document.querySelectorAll('.slide-item');
-    const nextBtn = document.querySelector('.next-btn');
-    const prevBtn = document.querySelector('.prev-btn');
+    const sliderContainers = document.querySelectorAll('.slider-container');
 
-    if (slides.length > 0 && nextBtn && prevBtn) {
-        let currentIndex = 0;
+    sliderContainers.forEach(container => {
+        const slides = container.querySelectorAll('.slide-item');
+        const nextBtn = container.querySelector('.next-btn');
+        const prevBtn = container.querySelector('.prev-btn');
 
-        // Initialize positions
-        updateSlider();
+        if (slides.length > 0 && nextBtn && prevBtn) {
+            let currentIndex = 0;
+            updateSlider();
 
-        function updateSlider() {
-            // Remove all classes first
-            slides.forEach(slide => {
-                slide.classList.remove('active', 'prev', 'next');
-                // Ensure hidden slides stay hidden in back
-                slide.style.opacity = '0'; 
-                slide.style.zIndex = '0';
+            function updateSlider() {
+                slides.forEach(slide => {
+                    slide.classList.remove('active', 'prev', 'next');
+                    slide.style.opacity = '0'; 
+                    slide.style.zIndex = '0';
+                });
+
+                let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+                let nextIndex = (currentIndex + 1) % slides.length;
+
+                // Active
+                slides[currentIndex].classList.add('active');
+                slides[currentIndex].style.opacity = '1';
+                slides[currentIndex].style.zIndex = '10';
+                
+                // Prev
+                slides[prevIndex].classList.add('prev');
+                slides[prevIndex].style.opacity = '0.6';
+                slides[prevIndex].style.zIndex = '5';
+                
+                // Next
+                slides[nextIndex].classList.add('next');
+                slides[nextIndex].style.opacity = '0.6';
+                slides[nextIndex].style.zIndex = '5';
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlider();
             });
 
-            // Handle Index Wrap-around
-            let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-            let nextIndex = (currentIndex + 1) % slides.length;
-
-            // Assign Classes
-            slides[currentIndex].classList.add('active');
-            slides[currentIndex].style.opacity = '1';
-            
-            slides[prevIndex].classList.add('prev');
-            slides[prevIndex].style.opacity = '0.6';
-            
-            slides[nextIndex].classList.add('next');
-            slides[nextIndex].style.opacity = '0.6';
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlider();
+            });
         }
-
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateSlider();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateSlider();
-        });
-        
-        // Optional: Auto-play
-        setInterval(() => {
-           // Uncomment next line to enable auto-scroll
-           // nextBtn.click();
-        }, 5000);
-    }
+    });
 
     /* --- TYPING EFFECT --- */
     const typeSpan = document.querySelector('.typewriter');
     if (typeSpan) {
-        const textArray = ["Web Developer", "Programmer", "Ethical Hacker", "Tech Enthusiast"];
+        const textArray = ["Web Developer", "Programmer", "Graphic Designer", "Ethical Hacker", "Tech Enthusiast"];
         let textIndex = 0;
         let charIndex = 0;
 
