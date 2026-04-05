@@ -115,16 +115,39 @@ document.addEventListener('DOMContentLoaded', () => {
         type();
     }
 
-    /* --- SCROLL ANIMATION --- */
+    /* --- SCROLL ANIMATIONS (SECTIONS & SKILLS) --- */
+    
+    // 1. Pop-up animation for all sections
+    const allSections = document.querySelectorAll('section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('show-section');
+            } else {
+                // Remove the class when scrolled out of view so it animates again when scrolling back
+                entry.target.classList.remove('show-section');
+            }
+        });
+    }, { threshold: 0.15 }); // Triggers when 15% of the section is visible
+
+    allSections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+    // 2. Progress Bar animation for Skills section
     const skillSection = document.querySelector('.skills');
     if (skillSection) {
-        const observer = new IntersectionObserver((entries) => {
+        const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
                     entry.target.classList.add('show-animate');
+                } else {
+                    // Remove class to reset widths back to 0 when scrolled away
+                    entry.target.classList.remove('show-animate');
                 }
             });
-        }, { threshold: 0.3 });
-        observer.observe(skillSection);
+        }, { threshold: 0.3 }); // Triggers when 30% of the skills section is visible
+        
+        skillObserver.observe(skillSection);
     }
 });

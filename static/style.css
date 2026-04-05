@@ -254,6 +254,7 @@ section {
     border: 1px solid rgba(0, 247, 255, 0.1);
 }
 
+/* Update your existing .skill-per to ensure it starts at 0 */
 .skill-per {
     position: absolute;
     left: 0;
@@ -262,23 +263,24 @@ section {
     border-radius: 0.5rem;
     background: var(--main-color);
     box-shadow: 0 0 10px var(--main-color);
-    width: 0; 
-    transition: width 1.5s ease-in-out;
+    width: 0;  /* MUST START AT 0 */
+    transition: width 1.5s ease-in-out 0.2s; /* Added a 0.2s delay for a smoother effect */
 }
 
-.skill-per.html { width: 95%; }
-.skill-per.css { width: 93%; }
-.skill-per.js { width: 80%; }
-.skill-per.react { width: 65%; }
-.skill-per.python { width: 86%; }
-.skill-per.cpp { width: 60%; }
-.skill-per.ms { width: 90%; }
-.skill-per.trouble { width: 85%; }
-.skill-per.ethical { width: 90%; }
-.skill-per.flutter { width: 70%; }
-.skill-per.php { width: 50%; }
-.skill-per.design { width: 93%; }
-
+/* These will only apply when the JavaScript adds the 'show-animate' class */
+.skills.show-animate .skill-per.html { width: 95%; }
+.skills.show-animate .skill-per.css { width: 93%; }
+.skills.show-animate .skill-per.js { width: 80%; }
+.skills.show-animate .skill-per.react { width: 89%; }
+.skills.show-animate .skill-per.python { width: 86%; }
+.skills.show-animate .skill-per.cpp { width: 60%; }
+.skills.show-animate .skill-per.ms { width: 90%; }
+.skills.show-animate .skill-per.trouble { width: 85%; }
+.skills.show-animate .skill-per.ethical { width: 90%; }
+.skills.show-animate .skill-per.flutter { width: 70%; }
+.skills.show-animate .skill-per.php { width: 50%; }
+.skills.show-animate .skill-per.next { width: 89%; }
+.skills.show-animate .skill-per.node { width: 86%; }
 .tooltip {
     position: absolute;
     right: -14px;
@@ -712,7 +714,17 @@ section {
     font-size: 0.9rem;
     color: #94a3b8;
 }
+/* --- SCROLL REVEAL ANIMATIONS FOR SECTIONS --- */
+section {
+    opacity: 0;
+    transform: translateY(80px) scale(0.95); /* Pushed down and slightly smaller */
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Smooth popping effect */
+}
 
+section.show-section {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
 /* --- RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 991px) {
     html {
