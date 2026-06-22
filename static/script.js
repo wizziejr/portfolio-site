@@ -38,7 +38,7 @@
             const typeSpan = document.querySelector('.typewriter');
             if (typeSpan) {
                 // Added "Full Stack Developer" to the array as requested
-                const textArray = ["Full Stack Developer", "Web Developer", "Programmer", "Graphic Designer", "Software Engineer", "Ethical Hacker", "Tech Enthusiast"];
+                const textArray = ["Full Stack Developer", "Web Developer", "Programmer", "Software Engineer", "Ethical Hacker", "Tech Enthusiast"];
                 let textIndex = 0;
                 let charIndex = 0;
 

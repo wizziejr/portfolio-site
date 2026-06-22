@@ -813,8 +813,7 @@
             }
             .gallery-box span {
                 transform: rotateY(calc(var(--i) * 60deg)) translateZ(180px);
-            }
-            
+            }            
             .contact-wrapper {
                 grid-template-columns: 1fr;
                 gap: 3rem;
@@ -868,6 +867,7 @@
                 width: 70vw; 
                 height: 70vw; 
             }
+
             .gallery-container {
                 height: 400px;
             }
