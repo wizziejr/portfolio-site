@@ -370,6 +370,48 @@
 
         .skill-bar:hover .tooltip { opacity: 1; }
 
+        /* --- SERVICES / CYBERSECURITY --- */
+        .services { background: var(--bg-color); }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--second-bg-color);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            transition: 0.4s;
+            box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--main-color);
+            box-shadow: 0 0 1.5rem rgba(0, 247, 255, 0.2);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--main-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
         /* --- PROJECTS --- */
         .projects-container {
             display: grid;
@@ -677,25 +719,16 @@
             margin-top: 1.5rem;
         }
 
-        /* --- SCROLL REVEAL ANIMATIONS FOR SECTIONS (SIDES POP-UP) --- */
+        /* --- SCROLL REVEAL ANIMATIONS FOR SECTIONS (FADE UP) --- */
         section {
             opacity: 0;
+            transform: translateY(100px);
             transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-
-        /* Odd sections slide in from the left */
-        section:nth-of-type(odd) {
-            transform: translateX(-150px);
-        }
-
-        /* Even sections slide in from the right */
-        section:nth-of-type(even) {
-            transform: translateX(150px);
         }
 
         section.show-section {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
         }
 
 
